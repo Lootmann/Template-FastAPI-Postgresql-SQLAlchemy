@@ -13,7 +13,7 @@ EOF
 #
 SECRET_KEY=`openssl rand -hex 32`
 
-cat <<EOF > ./backend.env
+cat <<EOF > ./backend/.env
   # authentication
   SECRET_KEY = "${SECRET_KEY}"
   ALGORITHM = "HS256"

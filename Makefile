@@ -1,5 +1,5 @@
-APP_CONTAINER_NAME=fastapi-template
-DB_CONTAINER_NAME=postgres-template
+APP_CONTAINER_NAME=fastapi
+DB_CONTAINER_NAME=postgres
 
 run:
 	docker compose up -d
@@ -20,7 +20,7 @@ restart:
 	docker compose restart
 
 migrate:
-	docker compose exec app python3 -m api.migrate_db
+	docker compose exec $(APP_CONTAINER_NAME) python3 -m api.migrate_db
 
 login-app:
 	docker exec -it $(APP_CONTAINER_NAME) /bin/bash
@@ -30,17 +30,17 @@ login-db:
 
 # tests
 test:
-	docker compose exec app python3.10 -m pytest -svv
+	docker compose exec $(APP_CONTAINER_NAME) python3.10 -m pytest -svv
 
 re:
-	docker compose exec app python3.10 -m pytest -svv --lf
+	docker compose exec $(APP_CONTAINER_NAME) python3.10 -m pytest -svv --lf
 
 # preformance
 measure:
-	docker compose exec app python3.10 -m pytest --durations=0
+	docker compose exec $(APP_CONTAINER_NAME) python3.10 -m pytest --durations=0
 
 cov:
-	docker compose exec app python3.10 -m pytest --cov --cov-report=html
+	docker compose exec $(APP_CONTAINER_NAME) python3.10 -m pytest --cov --cov-report=html
 
 report:
 	google-chrome ./backend/htmlcov/index.html

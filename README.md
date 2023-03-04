@@ -25,3 +25,8 @@
 └── db/
     └── Dockerfile
 ```
+
+## run
+
+1. `sh create_env.sh`
+2. `make build` or `make buildup`

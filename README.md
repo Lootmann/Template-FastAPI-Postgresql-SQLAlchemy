@@ -6,19 +6,22 @@
 ## Envs
 
 ```
-.
-+ Makefile
-+ compose.yml
-+ create_secret.sh
-+ backend/
-  + DockerFile
-  + .env
-  + db.py
-  + main.py
-  + migrate_db.py
-  + [settings.py](http://settings.py) (Pydantic)
-  + routers/
-  + schemas/
-  + models/
-  + cruds/
+├── README.md
+├── backend/
+│   ├── Dockerfile
+│   ├── api/
+│   │   ├── __init__.py
+│   │   ├── db.py
+│   │   ├── main.py
+│   │   ├── migrate_db.py
+│   │   ├── cruds/
+│   │   ├── models/
+│   │   ├── routers/
+│   │   └── schemas/
+│   ├── pyproject.toml
+│   └── requirements.txt
+├── compose.yml
+├── create_env.sh
+└── db/
+    └── Dockerfile
 ```

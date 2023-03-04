@@ -20,6 +20,7 @@ cat <<EOF > ./backend/.env
   ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
   # fastapi db connection
-  DB_URL="postgresql://postgres:postgres@db:5432/postgres"
+  # db name defines on compose.yml services
+  DB_URL="postgresql://postgres:postgres@postgres:5432/postgres"
   TEST_DB_URL="sqlite:///:memory:"
 EOF

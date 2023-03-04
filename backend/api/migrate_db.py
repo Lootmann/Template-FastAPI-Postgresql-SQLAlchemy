@@ -4,7 +4,7 @@ from api.models.users import Base as UserBase
 from api.settings import Settings
 
 credential = Settings()
-engine = create_engine(credential.test_db_url, echo=True)
+engine = create_engine(credential.db_url, echo=True)
 
 
 def reset_database():

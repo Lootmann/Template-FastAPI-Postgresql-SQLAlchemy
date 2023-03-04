@@ -1,7 +1,9 @@
 services:
   fastapi:
     container_name: fastapi-template
-    build: ./backend/Dockerfile
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     working_dir: /usr/code/
     command: python3.10 -m uvicorn api.main:app --reload --host 0.0.0.0 --port 8888
     volumes:
@@ -12,12 +14,14 @@ services:
       - target: 8888
         published: 8888
     depends_on:
-      db:
+      postgres:
         condition: service_started
 
   postgres:
     container_name: postgres-template
-    build: ./db/Dockerfile
+    build:
+      context: ./db
+      dockerfile: Dockerfile
     volumes:
       - type: volume
         source: postgres-volume
